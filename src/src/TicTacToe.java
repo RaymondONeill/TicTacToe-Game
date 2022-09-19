@@ -42,9 +42,7 @@ public class TicTacToe implements ActionListener{
             buttons[i].addActionListener(this);
         }
         // ^^^ this is the grid layout for the game we have a for loop to fill and resize the grid ^^^
-        
-
-
+        firstTurn();
 
     }
 
@@ -54,7 +52,21 @@ public class TicTacToe implements ActionListener{
     }
 
     public void firstTurn(){
+        try {
+            Thread.sleep(2000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        // ^^^ added a 2-second delay before assigning a turn. ^^^
 
+        if(random.nextInt(2) == 0){
+            player1_turn = true;
+            textField.setText("X turn.");
+        }
+        else { player1_turn = false;
+            textField.setText("O turn.");
+        }
+        // ^^^ this is the function to assign the turn to X or O. ^^^
     }
 
     public void check(){
